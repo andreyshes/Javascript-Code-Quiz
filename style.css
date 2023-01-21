@@ -29,12 +29,20 @@ h1 {
 }
 
 .high-scores {
-    margin-left: 1rem;
+	margin-left: 1rem;
 }
 
 .timer {
 	display: flex;
 	justify-content: flex-end;
-    margin-top: -2.2rem;
-    margin-right: 3rem;
+	margin-top: -2.2rem;
+	margin-right: 3rem;
+}
+
+.ques-options {
+    display: flex;
+	flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+    height: fit-content;
 }
