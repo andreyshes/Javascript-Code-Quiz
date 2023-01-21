@@ -1,0 +1,40 @@
+center {
+	margin-top: 10rem;
+}
+
+h1 {
+	font-size: 35px;
+}
+
+/* h4 {
+} */
+
+.start-quiz {
+	height: 2.3rem;
+	width: 7.5rem;
+	color: white;
+	background-color: lightblue;
+	font-weight: 900;
+	border-radius: 2px;
+	border: none;
+	font-size: 17px;
+}
+
+.helper-text {
+	width: 488px;
+}
+
+.helper-text > p {
+	font-weight: 500;
+}
+
+.high-scores {
+    margin-left: 1rem;
+}
+
+.timer {
+	display: flex;
+	justify-content: flex-end;
+    margin-top: -2.2rem;
+    margin-right: 3rem;
+}
