@@ -5,9 +5,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
+		<script src="https://cdn.tailwindcss.com"></script>
 		<title>Javascript-Code-Quiz</title>
 	</head>
-	<body>
+	<body class="container mx-auto p-8">
 		<header>
 			<div class="nav-div">
 				<h4 class="high-scores">View High Scores</h4>
@@ -18,46 +19,77 @@
 			<h4 class="timer" id="timer">Time: <span class="time-left"></span></h4>
 		</header>
 
-		<div class="main-div">
-			<center>
-				<h1>Coding Quiz Challenge</h1>
-				<div class="helper-text">
-					<p>
-						Try to answer the following code-related questions within the time
-						limit. Keep in mind that incorrect answers will penalize your
-						score/time by ten seconds!
-					</p>
-				</div>
-				<button class="start-quiz" id="start-btn">Start Quiz</button>
-			</center>
+		<div class="flex flex-col items-center mt-12" id="main-content">
+			<h1 class="text-4xl font-semibold">Coding Quiz Challenge</h1>
+			<div>
+				<p class="my-4 text-center">
+					Try to answer the following code-related questions within the time
+					limit. Keep in mind that incorrect answers will penalize your
+					score/time by ten seconds!
+				</p>
+			</div>
+			<button
+				type="button"
+				class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+				id="start-btn"
+			>
+				Start Quiz
+			</button>
 		</div>
 
-		<div class="upcoming-question">
-			<h2 class="question-label"></h2>
-			<ul class="ques-options">
-				<button class="op-1"></button
-				><button class="op-2"></button
-				><button class="op-3"></button
-				><button class="op-4"></button>
-			</ul>
+		<div class="mt-10 items-center flex flex-col hidden" id="question-content">
+			<h2 class="text-2xl font-semibold" id="question-title"></h2>
+
+			<div class="flex flex-col space-y-2 mt-4">
+				<button
+					id="answer-1"
+					type="button"
+					class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+				>
+					array
+				</button>
+				<button
+					id="answer-2"
+					type="button"
+					class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+				>
+					Button text
+				</button>
+				<button
+					id="answer-3"
+					type="button"
+					class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+				>
+					Button text
+				</button>
+				<button
+					id="answer-4"
+					type="button"
+					class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+				>
+					Button text
+				</button>
+			</div>
+			<div class="w-full border-t border-gray-300 my-4"></div>
+			<div class="" id="response">Correct</div>
 		</div>
-		<div class="res-2">
+		<!-- <div class="res-2">
 			<h2>Correct!</h2>
 		</div>
 		<div class="res-3">
-			<h2>Incorreect!</h2>
-		</div>
-		<div class="message-res">
+			<h2>Incorrect!</h2>
+		</div> -->
+		<!-- <div class="message-res">
 			<h2>Quiz Over!</h2>
 			<p>You ran out of time!</p>
-			<h3>Score</h3>
-			<p class="correct-answers"></p>
-		</div>
-		<form action="">
+			<h3>Score</h3> -->
+		<!-- <p class="correct-answers"></p>
+		</div> -->
+		<!-- <form action="">
 			<label for="intials">Enter Initials</label>
 			<input type="text" id="int-input" />
 			<button type="submit" id="sub-int">Submit</button>
-		</form>
+		</form> -->
 
 		<script src="index.js"></script>
 	</body>
