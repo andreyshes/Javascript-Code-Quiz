@@ -18,44 +18,46 @@
 			<h4 class="timer" id="timer">Time: <span class="time-left"></span></h4>
 		</header>
 
-		<center>
-			<h1>Coding Quiz Challenge</h1>
-			<div class="helper-text">
-				<p>
-					Try to answer the following code-related questions within the time
-					limit. Keep in mind that incorrect answers will penalize your
-					score/time by ten seconds!
-				</p>
-			</div>
-			<div class="upcoming-question">
-				<h2 class="question-label"></h2>
-				<ul class="ques-options">
-					<button class="op-1"></button
-					><button class="op-2"></button
-					><button class="op-3"></button
-					><button class="op-4"></button>
-				</ul>
-			</div>
-            <div class="res-2">
-                <h2>Correct!</h2>
-            </div>
-            <div class="res-3">
-                <h2>Incorreect!</h2>
-            </div>
-            <div class="message-res">
-                <h2>Quiz Over!</h2>
-                <p>You ran out of time!</p>
-                <h3>Score</h3>
-                <p class="correct-answers"></p>
-            </div>
-            <form action="">
-                <label for="intials">Enter Initials</label>
-                <input type="text" id="int-input">
-                <button type="submit" id="sub-int">Submit</button>
-            </form>
+		<div class="main-div">
+			<center>
+				<h1>Coding Quiz Challenge</h1>
+				<div class="helper-text">
+					<p>
+						Try to answer the following code-related questions within the time
+						limit. Keep in mind that incorrect answers will penalize your
+						score/time by ten seconds!
+					</p>
+				</div>
+				<button class="start-quiz" id="start-btn">Start Quiz</button>
+			</center>
+		</div>
 
-			<button class="start-quiz" id="start-btn">Start Quiz</button>
-		</center>
+		<div class="upcoming-question">
+			<h2 class="question-label"></h2>
+			<ul class="ques-options">
+				<button class="op-1"></button
+				><button class="op-2"></button
+				><button class="op-3"></button
+				><button class="op-4"></button>
+			</ul>
+		</div>
+		<div class="res-2">
+			<h2>Correct!</h2>
+		</div>
+		<div class="res-3">
+			<h2>Incorreect!</h2>
+		</div>
+		<div class="message-res">
+			<h2>Quiz Over!</h2>
+			<p>You ran out of time!</p>
+			<h3>Score</h3>
+			<p class="correct-answers"></p>
+		</div>
+		<form action="">
+			<label for="intials">Enter Initials</label>
+			<input type="text" id="int-input" />
+			<button type="submit" id="sub-int">Submit</button>
+		</form>
 
 		<script src="index.js"></script>
 	</body>
