@@ -5,10 +5,13 @@ center {
 h1 {
 	font-size: 35px;
 }
+#initials {
+	border: solid 2px;
+}
 
-/* h4 {
-} */
-
+#sub-button {
+	height: 1.85rem;
+}
 .start-quiz {
 	height: 2.3rem;
 	width: 7.5rem;
@@ -40,9 +43,9 @@ h1 {
 }
 
 .ques-options {
-    display: flex;
+	display: flex;
 	flex-direction: column;
-    gap: 10px;
-    width: fit-content;
-    height: fit-content;
+	gap: 10px;
+	width: fit-content;
+	height: fit-content;
 }

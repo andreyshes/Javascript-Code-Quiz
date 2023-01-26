@@ -7,11 +7,6 @@ let initialTime = 60;
 let correctAnswered = 0;
 let answeredQuestions = 0;
 
-let answer1 = document.querySelector(".op-1");
-let answer2 = document.querySelector(".op-2");
-let answer3 = document.querySelector(".op-3");
-let answer4 = document.querySelector(".op-4");
-
 let upcomingQuestion = document.querySelector("#upcoming-question");
 let questionOpt = document.querySelector(".ques-options");
 let correctRes = document.querySelector(".res-2");
@@ -60,9 +55,11 @@ const startTime = () => {
 		if (countDown <= 0) {
 			clearInterval(timerEl);
 			timer.textContent = 0;
-		} else if (answeredQuestions > 5) {
-			clearInterval(timerEl);
-			timer.textContent = 0;
+		} else {
+			stopTimer = () => {
+				clearInterval(timerEl);
+				countDown += 10;
+			};
 		}
 	}, 1000);
 };
@@ -70,6 +67,8 @@ const startTime = () => {
 const mainCon = () => {
 	document.getElementById("main-content").style.display = "none";
 	document.getElementById("question-content").style.display = "flex";
+	document.getElementById("score-input").style.display = "none";
+	document.getElementById("submit-message").style.display = "none";
 };
 
 const displayQuestion = ({ question, answers, correctAnswer }) => {
@@ -90,6 +89,7 @@ const displayQuestion = ({ question, answers, correctAnswer }) => {
 			if (correctAnswer !== answer) {
 				countDown -= 10;
 			}
+
 			getNewQuestion();
 		});
 	}
@@ -103,14 +103,18 @@ const startQuiz = (event) => {
 	getNewQuestion();
 };
 const getNewQuestion = () => {
-	console.log(myQuestions);
+	// console.log(myQuestions);
 	const question = randomQuestion();
-	console.log(myQuestions.length);
+	// console.log(myQuestions.length);
 	if (question) {
 		displayQuestion(question);
 	} else {
 		document.getElementById("question-content").style.display = "none";
-		
+
+		stopTimer();
+		submitScore();
+		document.getElementById("submit-message").style.display = "block";
+		document.getElementById("score-input").style.display = "block";
 	}
 };
 
@@ -121,6 +125,15 @@ const randomQuestion = () => {
 		return selectedQuestion.question !== question.question;
 	});
 	return selectedQuestion;
+};
+const submitMessage = () => {
+	subMessage = document.getElementById("submit-message");
+};
+const submitScore = () => {
+	if (myQuestions.length === 0) {
+		submitMyScore = document.getElementById("score-input");
+		submitMyScore.textContent = "You're Score:" + " " + countDown;
+	}
 };
 
 startGame.addEventListener("click", startQuiz);
