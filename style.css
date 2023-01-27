@@ -38,7 +38,6 @@ h1 {
 .timer {
 	display: flex;
 	justify-content: flex-end;
-	margin-top: -2.2rem;
 	margin-right: 3rem;
 }
 
@@ -48,4 +47,18 @@ h1 {
 	gap: 10px;
 	width: fit-content;
 	height: fit-content;
+}
+
+#submit-message {
+	display: none;
+    margin-top: 7rem;
+    
+}
+
+.res-1 {
+	display: none;
+}
+
+#timer-zone {
+	margin-top: -1.7rem;
 }

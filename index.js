@@ -1,3 +1,5 @@
+//grabbing all the elements from the html file
+
 let startGame = document.querySelector("#start-btn");
 let pageStart = document.querySelector(".main-div");
 let timer = document.querySelector(".time-left");
@@ -9,16 +11,13 @@ let answeredQuestions = 0;
 
 let upcomingQuestion = document.querySelector("#upcoming-question");
 let questionOpt = document.querySelector(".ques-options");
-let correctRes = document.querySelector(".res-2");
-let incorrectRes = document.querySelector(".res-3");
 
 let correctNumAnswered = document.querySelector(".correct-answers");
-let initials = document.querySelector("#int-input");
-let submitIntitals = document.querySelector("#sub-int");
 
 let viewHighScores = document.querySelector(".high-scores");
 let savedScore = document.querySelector(".saved-score");
-
+let responseOne = document.querySelector(".res-1");
+//created an array of questions to be asked
 let myQuestions = [
 	{
 		question: "What is the value of a boolean? ",
@@ -46,6 +45,8 @@ let myQuestions = [
 		correctAnswer: "javascript",
 	},
 ];
+
+//created a timer function that starts and stops from initial time
 timer.textContent = 0;
 let countDown = initialTime;
 const startTime = () => {
@@ -63,24 +64,27 @@ const startTime = () => {
 		}
 	}, 1000);
 };
-
+//a function that gets rid of all the context on load out and dispalys questions
 const mainCon = () => {
 	document.getElementById("main-content").style.display = "none";
 	document.getElementById("question-content").style.display = "flex";
 	document.getElementById("score-input").style.display = "none";
 	document.getElementById("submit-message").style.display = "none";
 };
-
+//funnction that grabs index from given array to display question
 const displayQuestion = ({ question, answers, correctAnswer }) => {
 	const titleElement = document.getElementById("question-title");
+	//setting the titleElement(our questions) to equal our question from the array
 	titleElement.innerText = question;
-
+		//for loop that loops through the questions, answers, and correct anwsers
 	for (const [index, answer] of answers.entries()) {
 		let ogAnswerButton = document.querySelector(`#answer-${index + 1}`);
+		//gets rid of the event lisenters that were called to many times
 		let answerButton = ogAnswerButton.cloneNode(true);
 		ogAnswerButton.parentNode.replaceChild(answerButton, ogAnswerButton);
 		answerButton.innerText = answer;
-
+		
+		//event listener to see whether the answer chosen is correct or incorrect
 		answerButton.addEventListener("click", (event) => {
 			event.preventDefault();
 			const answerResponse = document.getElementById("response");
@@ -89,16 +93,15 @@ const displayQuestion = ({ question, answers, correctAnswer }) => {
 			if (correctAnswer !== answer) {
 				countDown -= 10;
 			}
-
+			//calling the getNewQuestion function to grab a new question after given question was answered
 			getNewQuestion();
 		});
 	}
 };
-
+//function when called will run these other functions below when quiz starts
 const startQuiz = (event) => {
 	event.preventDefault();
 	mainCon();
-
 	startTime();
 	getNewQuestion();
 };
@@ -126,13 +129,24 @@ const randomQuestion = () => {
 	});
 	return selectedQuestion;
 };
-const submitMessage = () => {
-	subMessage = document.getElementById("submit-message");
-};
+
 const submitScore = () => {
 	if (myQuestions.length === 0) {
 		submitMyScore = document.getElementById("score-input");
 		submitMyScore.textContent = "You're Score:" + " " + countDown;
+		document.getElementById("submit-message").style.display = "block";
+		let initials = document.getElementById("initials").value;
+		localStorage.setItem("initials", initials);
+		localStorage.setItem("score", countDown);
+	}
+};
+const displayScore = () => {
+	let initials = localStorage.getItem("initials");
+	console.log(initials);
+	if (initials) {
+		console.log(initials + " " + countDown);
+		responseOne.textContent = initials + " " + countDown;
+		responseOne.style.display = "block";
 	}
 };
 

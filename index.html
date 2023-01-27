@@ -11,12 +11,17 @@
 	<body class="container mx-auto p-8">
 		<header>
 			<div class="nav-div">
-				<h4 class="high-scores">View High Scores</h4>
+				<button onclick="displayScore()">
+					<h4 class="high-scores">View High Scores</h4>
+				</button>
+
 				<div class="res-1">
 					<h4 class="saved-score"></h4>
 				</div>
 			</div>
-			<h4 class="timer" id="timer">Time: <span class="time-left"></span></h4>
+			<h4 class="timer" id="timer-zone">
+				Time: <span class="time-left"></span>
+			</h4>
 		</header>
 
 		<div class="flex flex-col items-center mt-12" id="main-content">
@@ -81,6 +86,7 @@
 				<label for="intials" class="font-medium">Enter initials:</label>
 				<input type="text" id="initials" name="initials" class="rounded" />
 				<button
+					onclick="submitScore()"
 					id="sub-button"
 					type="button"
 					class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
